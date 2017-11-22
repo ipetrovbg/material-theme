@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProfileDialogComponent } from './profile-dialog/profile-dialog.component';
+import { MaterialModule } from '../material/material.module';
 
 const importExports: any[] = [
   HttpModule,
@@ -12,9 +14,18 @@ const importExports: any[] = [
 @NgModule({
   imports: [
     CommonModule,
+    MaterialModule,
     ...importExports
   ],
-  exports: importExports,
-  declarations: []
+  exports: [
+    ...importExports,
+    ProfileDialogComponent
+  ],
+  declarations: [
+    ProfileDialogComponent
+  ],
+  entryComponents: [
+    ProfileDialogComponent
+  ]
 })
 export class SharedModule { }

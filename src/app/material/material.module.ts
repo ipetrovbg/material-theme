@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
@@ -10,7 +10,9 @@ import {
   MatSelectModule,
   MatIconModule,
   MatExpansionModule,
-  MatListModule, MatSlideToggleModule,
+  MatListModule,
+  MatSlideToggleModule,
+  MatDialogModule, MatToolbar,
 } from '@angular/material';
 
 const importExport: any[] = [
@@ -24,6 +26,7 @@ const importExport: any[] = [
   MatExpansionModule,
   MatListModule,
   MatSlideToggleModule,
+  MatDialogModule
 ];
 
 @NgModule({
