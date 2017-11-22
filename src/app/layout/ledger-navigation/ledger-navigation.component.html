@@ -1,0 +1,40 @@
+<div
+  (mouseover)="mouseOver()"
+  (mouseout)="mouseOut()"
+>
+
+
+  <div class="main-navigation-sidebar mat-elevation-z1"
+       [@slideInOutAnimation]="context.get('toggle') | async">
+
+    <mat-toolbar class="menu-toolbar" color="primary">
+      <span [hidden]="(context.get('toggle') | async) === 'close'">HEADER</span>
+      <span [hidden]="(context.get('toggle') | async) === 'open'">H</span>
+      <div class="space" [hidden]="(context.get('toggle') | async) === 'close'">
+        <button mat-icon-button class="left" (click)="toggleSidebar()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar>
+
+    <mat-nav-list class="overflow">
+    <span mat-subheader>
+      <span [hidden]="(context.get('toggle') | async) === 'close'">APPLICATION</span>
+      <span [hidden]="(context.get('toggle') | async) === 'open'">-</span>
+    </span>
+      <div [hidden]="(context.get('toggle') | async) === 'close'">
+        <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/dashboard']">Dashboard</mat-list-item>
+      </div>
+      <div [hidden]="(context.get('toggle') | async) === 'open'">
+        <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/dashboard']">D</mat-list-item>
+      </div>
+
+      <div [hidden]="(context.get('toggle') | async) === 'close'">
+        <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/profile']">Profile</mat-list-item>
+      </div>
+      <div [hidden]="(context.get('toggle') | async) === 'open'">
+        <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/profile']" *ngIf="(context.get('toggle') | async) === 'close'">P</mat-list-item>
+      </div>
+    </mat-nav-list>
+  </div>
+</div>

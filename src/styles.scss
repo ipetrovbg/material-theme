@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@import './theme';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: $mat-font-family;
+  font-weight: normal;
+  background: mat-color($mat-grey, 100);
+  height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-weight: normal;
+}

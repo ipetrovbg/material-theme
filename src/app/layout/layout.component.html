@@ -1,0 +1,24 @@
+<app-settings-sidebar>
+
+  <app-ledger-navigation></app-ledger-navigation>
+
+  <div class="content" [@slideIOut]="context.get('toggle') | async">
+
+
+    <mat-toolbar class="mat-elevation-z1 mat-flex" role="header">
+
+      <span>Toolbar</span>
+
+      <button mat-icon-button class="left"
+              (click)="context.set('settings-sidebar', !context.get('settings-sidebar').getValue())">
+        <mat-icon *ngIf="!(context.get('settings-sidebar') | async)">settings</mat-icon>
+        <mat-icon *ngIf="(context.get('settings-sidebar') | async)">arrow_forward</mat-icon>
+      </button>
+
+    </mat-toolbar>
+
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</app-settings-sidebar>

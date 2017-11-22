@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+
+.settings-sedebar-container {
+  width: 300px;
+  background-color: mat-color($mat-grey, 300);
+  @include mat-elevation(2);
+  .settings-toolbar {
+    @include mat-elevation(1);
+    z-index: 999;
+    position: relative;
+  }
+  .flex {
+    width: 100%;
+    label {
+      &.mat-slide-toggle-label {
+        justify-content: space-between !important;
+      }
+    }
+  }
+}

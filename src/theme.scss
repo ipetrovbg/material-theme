@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@import url('//fonts.googleapis.com/icon?family=Material+Icons');
+
+@include mat-core();
+
+$primaryTheme: $mat-teal;
+$accentTheme: $mat-lime;
+$warnTheme: $mat-orange;
+$elevation: 700;
+$primary: mat-palette($primaryTheme, $elevation);
+$accent:  mat-palette($accentTheme, $elevation);
+$warn:    mat-palette($warnTheme, $elevation);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);

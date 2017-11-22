@@ -1,0 +1,37 @@
+@import '~@angular/material/theming';
+@import '../../../theme';
+
+.main-navigation-sidebar {
+  width: 250px;
+  float: left;
+  height: 100vh;
+  position: fixed;
+
+    mat-nav-list {
+      &.overflow {
+        overflow-y: auto;
+        height: calc(100vh - 72px);
+        background-color: mat-color($primaryTheme, ($elevation + 100));
+        //@include mat-elevation(1);
+        span {
+          color: mat-contrast($primaryTheme, $elevation + 200);
+          background-color: mat-color($primaryTheme, ($elevation + 100));
+        }
+        mat-list-item {
+          color: mat-contrast($primaryTheme, $elevation);
+          &.active {
+            background-color: mat-color($warnTheme, ($elevation + 100));
+          }
+        }
+      }
+    }
+  .menu-toolbar {
+    display: flex;
+    justify-content: space-between;
+    @include mat-elevation-transition;
+    @include mat-elevation(2);
+    z-index: 100;
+    position: relative;
+    color: mat-contrast($primaryTheme, $elevation);
+  }
+}

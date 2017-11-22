@@ -1,0 +1,22 @@
+<mat-sidenav-container (backdropClick)="onBackDropClicked()">
+  <mat-sidenav position="end" mode="over" class="settings-sedebar-container">
+    <mat-toolbar class="settings-toolbar">
+      <span>Settings</span>
+    </mat-toolbar>
+    <mat-list>
+      <h4 mat-subheader>App settings</h4>
+      <mat-list-item>
+        <mat-slide-toggle labelPosition="before" class="flex" color="warn">
+          <h3 mat-line>Notifications</h3>
+        </mat-slide-toggle>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <h3 mat-subheader>Notes</h3>
+      <mat-list-item>
+        <h3 mat-line>Some note</h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <ng-content></ng-content>
+</mat-sidenav-container>
+
