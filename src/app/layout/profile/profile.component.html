@@ -75,7 +75,7 @@
 
 <app-card-sidebar [open]="open" (backDrop)="(open = !open)">
   <app-card-toolbar title="SOS" color="primary">
-    <app-card-loader mode="">
+    <app-card-loader mode="query">
       <app-card-actions>
         <button mat-raised-button color="primary" (click)="open = !open">Open</button>
       </app-card-actions>
