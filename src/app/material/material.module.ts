@@ -12,7 +12,11 @@ import {
   MatExpansionModule,
   MatListModule,
   MatSlideToggleModule,
-  MatDialogModule, MatToolbar,
+  MatDialogModule,
+  MatCardModule,
+  MatProgressSpinnerModule,
+  MatProgressBarModule,
+  MatTabsModule
 } from '@angular/material';
 
 const importExport: any[] = [
@@ -26,7 +30,11 @@ const importExport: any[] = [
   MatExpansionModule,
   MatListModule,
   MatSlideToggleModule,
-  MatDialogModule
+  MatDialogModule,
+  MatCardModule,
+  MatProgressSpinnerModule,
+  MatProgressBarModule,
+  MatTabsModule
 ];
 
 @NgModule({

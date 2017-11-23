@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
   openDialog() {
 
     const config = <MatDialogConfig>{
+      width: '400px',
       data: { name: 'Petar s' }
     };
     const dialogRef = this.dialog.open(ProfileDialogComponent, config);
