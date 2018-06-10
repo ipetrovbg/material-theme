@@ -9,6 +9,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
   encapsulation: ViewEncapsulation.None
 })
 export class ProfileDialogComponent implements OnInit {
+  
+  public scrollbarOptions = { axis: 'yx', theme: 'minimal-dark' };
 
   constructor(
     private dialogRef: MatDialogRef<ProfileDialogComponent>,

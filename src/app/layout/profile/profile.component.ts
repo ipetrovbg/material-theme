@@ -8,6 +8,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  public open: boolean = false;
+
   constructor() { }
 
   ngOnInit() {

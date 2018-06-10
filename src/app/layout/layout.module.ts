@@ -14,6 +14,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { SettingsSidebarComponent } from './settings-sidebar/settings-sidebar.component';
 
 import { UserContextService } from '../core/user-context/user-context.service';
+import { CostService } from './cost/cost.service';
+import { ShowcaseComponent } from './showcase/showcase.component';
+import { IncomeComponent } from './income/income.component';
+import { LayoutGuard } from './layout.guard';
+import { IncomeService } from './income/income.service';
+import { AddIncomeComponent } from './income/dialog/add-income.component';
+import { CostComponent } from './cost/cost.component';
+import { DialogComponent } from './cost/dialog/dialog.component';
 
 @NgModule({
   imports: [
@@ -27,7 +35,21 @@ import { UserContextService } from '../core/user-context/user-context.service';
     LedgerNavigationComponent,
     DashboardComponent,
     ProfileComponent,
-    SettingsSidebarComponent
+    SettingsSidebarComponent,
+    ShowcaseComponent,
+    IncomeComponent,
+    AddIncomeComponent,
+    CostComponent,
+    DialogComponent
+  ],
+  providers: [
+    CostService,
+    LayoutGuard,
+    IncomeService
+  ],
+  entryComponents: [
+    AddIncomeComponent,
+    DialogComponent
   ]
 })
 export class LayoutModule {

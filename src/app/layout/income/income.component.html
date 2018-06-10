@@ -1,0 +1,134 @@
+<app-page-wrapper icon="attach_money" title="Income">
+
+  <ng-template #sidenav>
+    <div class="app-card-sidenav">
+      <mat-nav-list>
+        <mat-list-item (click)="openDialog()">
+          Add Income
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
+    </div>
+  </ng-template>
+
+
+  <app-card-sidebar [open]="open" (backDrop)="(open = !open)" [sidenav]="sidenav">
+    <!--<app-card-loader mode="determinate" [value]="100" color="primary">-->
+      <app-card-content>
+
+        <app-card class="header-margin">
+          <!--<app-card-loader>-->
+            <app-card-content>
+              <div>
+                <app-card-icon
+                  icon="attach_money"
+                  message="Incomes: {{ totalIncomes | async }} lv."
+                  [value]="totalIncomes | async"
+                  class="content primary"
+                  fxFlex="100"
+                  fxFlex.lt-lg="100"
+                  fxFlex.lt-md="100"
+                ></app-card-icon>
+              </div>
+              <div>
+                <button mat-icon-button (click)="open = !open" color="primary">
+                  <mat-icon>settings_applications</mat-icon>
+                </button>
+              </div>
+
+              <mat-slide-toggle (change)="changeOrAndDescriptor()" [(ngModel)]="orAnd">OR/AND</mat-slide-toggle>
+              <mat-slide-toggle (change)="filterTestIncomes($event)" [(ngModel)]="testMode">Test</mat-slide-toggle>
+
+              <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value, 'reason')" placeholder="Reason">
+                <mat-hint><strong>Filter by Reason field</strong></mat-hint>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value, 'income')" placeholder="Income">
+                <mat-hint><strong>Filter by Income field</strong></mat-hint>
+              </mat-form-field>
+
+
+
+            </app-card-content>
+          <!--</app-card-loader>-->
+        </app-card>
+
+        <div>
+          <mat-table
+            #table
+            [dataSource]="dataSource"
+            matSort
+            matSortActive="createdAt"
+            matSortDisableClear matSortDirection="desc">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true"> <strong>ID</strong> </mat-header-cell>
+              <mat-cell *matCellDef="let element" width="200"> <i># {{element.id}}</i> </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="income">
+              <mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true"> <strong>Income</strong> </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.income}} <small><i>BGN</i></small></mat-cell>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="reason">
+              <mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true"> <strong>Reason</strong></mat-header-cell>
+              <mat-cell *matCellDef="let element" class="truncate"> {{element.reason}}</mat-cell>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="date">
+              <mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true"> <strong>Date</strong> </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.date | date:'dd MMM, yyyy'}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="createdAt">
+              <mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true"> <strong>Created At</strong> </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.createdAt | date:'dd MMM, yyyy'}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="updatedAt">
+              <mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true"> <strong>Updated At</strong> </mat-header-cell>
+              <mat-cell *matCellDef="let element"> <i>{{element.updatedAt | date:'dd MMM, yyyy'}}</i> </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="isTest">
+              <mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true"> <strong>Test Income</strong> </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <mat-chip-list>
+                  <mat-chip [color]="element.isTest ? 'warn' : 'primary'" selected="true">{{ element.isTest ? 'Yes' :
+                    'No' }}
+                  </mat-chip>
+                </mat-chip-list>
+              </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+              <mat-header-cell *matHeaderCellDef> <strong>Actions</strong> </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <button mat-mini-fab color="primary" (click)="editIncome(element)">
+                  <mat-icon>mode_edit</mat-icon>
+                </button>
+                <button mat-mini-fab color="warn" (click)="deleteIncome(element.id, $event )">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)"></mat-row>
+          </mat-table>
+        </div>
+        <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20, 30, 40, 50, 100]">
+        </mat-paginator>
+
+      </app-card-content>
+    <!--</app-card-loader>-->
+  </app-card-sidebar>
+
+
+</app-page-wrapper>

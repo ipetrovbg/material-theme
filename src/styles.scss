@@ -14,3 +14,68 @@ body {
 h1, h2, h3, h4 {
   font-weight: normal;
 }
+.mat-toolbar-multiple-rows {
+  min-height: auto!important;
+}
+.space {
+  margin: 5px;
+  background-color: transparent!important;
+}
+.content {
+  &.primary {
+    mat-card {
+      background-color: mat-color($mat-teal, 700, 1);
+      color: #fff;
+    }
+    background-color: mat-color($mat-teal, 700, 1);
+  }
+  &.accent {
+    mat-card {
+      background-color: mat-color($accentTheme, 700, 1);
+      color: #fff;
+    }
+    background-color: mat-color($accentTheme, 700, 1);
+  }
+  &.warn {
+    mat-card {
+      background-color: mat-color($warnTheme, 700, 1);
+      color: #fff;
+    }
+    background-color: mat-color($warnTheme, 700, 1);
+  }
+}
+.full-width {
+  width: 100%;
+}
+.verticle {
+  &.line {
+    position:absolute;
+    left:35%;
+    top:0%;
+    bottom:0%;
+    border-left:1px solid white;
+    opacity: .4;
+    &.primary {
+      border-left:1px solid  mat-color($primaryTheme, 700, 1);
+    }
+  }
+}
+.errors {
+  list-style-type: none;
+}
+.error-text {
+  color:  mat-color($mat-deep-orange, 700, 1);
+}
+.page-wrapper {
+  margin-top: 20px;
+}
+
+mat-datepicker-content {
+  padding: 30px!important;
+}
+.truncate {
+  text-overflow: ellipsis;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}

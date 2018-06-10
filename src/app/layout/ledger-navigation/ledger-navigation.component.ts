@@ -22,8 +22,10 @@ export class LedgerNavigationComponent implements OnInit {
 
   @ViewChild('sidebar') readonly sidebar: ElementRef;
 
+  public scrollbarOptions = { axis: 'yx', theme: 'minimal' };
+
   constructor(
-    private context: UserContextService
+    public context: UserContextService
   ) {}
 
   ngOnInit() {}

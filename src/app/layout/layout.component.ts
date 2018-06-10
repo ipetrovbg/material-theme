@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { UserContextService } from '../core/user-context/user-context.service';
 
@@ -24,12 +24,14 @@ import { UserContextService } from '../core/user-context/user-context.service';
 })
 export class LayoutComponent implements OnInit {
 
+  public scrollbarOptions = { axis: 'yx', theme: 'minimal-dark' };
+
   constructor(
-    private context: UserContextService
+    public context: UserContextService
   ) {
     context.register('settings-sidebar', false);
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

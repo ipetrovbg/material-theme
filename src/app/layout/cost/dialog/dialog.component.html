@@ -1,0 +1,71 @@
+<div class="dialog-wrapper">
+  <mat-toolbar color="primary" mat-dialog-title>
+    <mat-toolbar-row>
+      <span>{{ data.cost ? 'Edit Cost' : 'Add Cost' }}</span>
+      <button mat-icon-button mat-dialog-close>
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar-row>
+    <!--<mat-toolbar-row class="relative">
+      <div class="icon-wrapper">
+        <mat-icon style="font-size: 47px;">attach_money</mat-icon>
+      </div>
+    </mat-toolbar-row>-->
+  </mat-toolbar>
+
+  <div mat-dialog-content tabindex="1" class="hidden">
+
+    <app-card>
+      <app-card-content>
+        <form [formGroup]="form" (ngSubmit)="save()">
+          <div fxLayout="column" fxLayoutGap="30px">
+
+            <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px">
+
+              <!-- DATE FIELD -->
+              <mat-form-field
+                fxFlex="50"
+                fxFlex.lt-md="85"
+              >
+                  <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker touchUi="true"></mat-datepicker>
+              </mat-form-field>
+              <!-- /DATE FIELD -->
+
+              <!-- INCOME FIELD -->
+              <mat-form-field
+                fxFlex="50"
+                fxFlex.lt-md="85"
+              >
+                <input matInput placeholder="Cost" type="number" formControlName="cost" required>
+                <mat-hint align="start"><strong>e.g. 1000</strong> </mat-hint>
+              </mat-form-field>
+              <!-- /INCOME FIELD -->
+            </div>
+
+            <div fxLayout="row">
+              <!-- REASON FIELD -->
+              <mat-form-field
+                fxFlex="100"
+              >
+                <input matInput #message maxlength="256" placeholder="Reason" formControlName="reason">
+
+                <mat-hint align="start"><strong>e.g. Rent</strong> </mat-hint>
+                <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+              </mat-form-field>
+              <!-- /REASON FIELD -->
+            </div>
+            <div fxLayout="column">
+              <mat-checkbox formControlName="isTest">Test Cost</mat-checkbox>
+            </div>
+          </div>
+        </form>
+      </app-card-content>
+    </app-card>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button  mat-raised-button color="primary" (click)="save()">Save</button>
+  </div>
+</div>

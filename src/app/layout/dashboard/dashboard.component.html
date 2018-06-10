@@ -1,37 +1,40 @@
-<div>
-  <mat-accordion class="example-headers-align">
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Personal data
-        </mat-panel-title>
-        <mat-panel-description>
-          Type your name and age
-        </mat-panel-description>
-      </mat-expansion-panel-header>
+<app-page-wrapper icon="dashboard" title="Dashboard">
 
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti eius excepturi expedita fuga minima odit
-        omnis,
-        quam qui sit voluptatibus! Asperiores nam pariatur quis sit tempora! Impedit neque quo vero.
-      </div>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Personal data
-        </mat-panel-title>
-        <mat-panel-description>
-          Type your name and age
-        </mat-panel-description>
-      </mat-expansion-panel-header>
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="10px">
 
-      <div>
-        some text
-      </div>
-    </mat-expansion-panel>
-  </mat-accordion>
-  <div>
-    <button mat-raised-button color="warn" (click)="openDialog()">Open</button>
+    <app-card-icon
+      icon="attach_money"
+      message="Incomes"
+      [value]="incomeSum | async"
+      class="content primary "
+      fxFlex="25"
+      fxFlex.lt-lg="50"
+      fxFlex.lt-md="100"
+      (click)="openDialog()"
+    ></app-card-icon>
+
+    <app-card-icon
+      icon="money_off"
+      message="Cost for this month: {{ sum | async }} lv."
+      [value]="sum | async"
+      class="content primary"
+      fxFlex="25"
+      fxFlex.lt-lg="50"
+      fxFlex.lt-md="100"
+      (click)="openDialog()"
+    ></app-card-icon>
+
+    <app-card-icon
+      icon="date_range"
+      message="Days to next salary"
+      [value]="daysToSalary | async"
+      class="content primary "
+      fxFlex="25"
+      fxFlex.lt-lg="50"
+      fxFlex.lt-md="100"
+      (click)="openDialog()"
+    ></app-card-icon>
+
   </div>
-</div>
+
+</app-page-wrapper>

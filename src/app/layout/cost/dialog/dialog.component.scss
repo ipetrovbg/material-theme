@@ -1,0 +1,59 @@
+.hidden {
+  overflow: hidden!important;
+}
+.mat-dialog-container {
+  padding: 0;
+  overflow: hidden;
+}
+.dialog-wrapper {
+  max-height: 85vh!important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.mat-dialog-title {
+  margin: 0;
+  .mat-toolbar-row {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.mat-dialog-content {
+  padding: 15px;
+  position: relative;
+  margin: 0;
+}
+.mat-dialog-actions {
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+  max-height: 100%;
+  place-content: center space-between;
+  align-items: center;
+  margin: 0;
+  padding:16px;
+  &:last-child {
+    margin-bottom: auto;
+  }
+}
+.icon-wrapper {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  left: 0;
+  display: flex;
+  bottom: 64px;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-toolbar-row {
+  &.relative {
+    position: relative;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -16,7 +16,16 @@ import {
   MatCardModule,
   MatProgressSpinnerModule,
   MatProgressBarModule,
-  MatTabsModule
+  MatTabsModule,
+  MatTooltipModule,
+  MatCheckboxModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatChipsModule,
+  MatMenuModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 
 const importExport: any[] = [
@@ -34,7 +43,16 @@ const importExport: any[] = [
   MatCardModule,
   MatProgressSpinnerModule,
   MatProgressBarModule,
-  MatTabsModule
+  MatTabsModule,
+  MatTooltipModule,
+  MatCheckboxModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatChipsModule,
+  MatMenuModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 ];
 
 @NgModule({

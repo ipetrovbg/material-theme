@@ -16,25 +16,85 @@
         </button>
       </div>
     </mat-toolbar>
+      <mat-nav-list class="overflow">
+      <span mat-subheader>
+        <span [hidden]="(context.get('toggle') | async) === 'close'">APPLICATION</span>
+        <span [hidden]="(context.get('toggle') | async) === 'open'">-</span>
+      </span>
+        <div [hidden]="(context.get('toggle') | async) === 'close'">
+          <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/dashboard']">
+            <mat-icon>dashboard</mat-icon>  <span class="space">Dashboard</span>
+          </mat-list-item>
+        </div>
+        <div [hidden]="(context.get('toggle') | async) === 'open'">
+          <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/dashboard']">
+            <mat-icon>dashboard</mat-icon>
+          </mat-list-item>
+        </div>
 
-    <mat-nav-list class="overflow">
-    <span mat-subheader>
-      <span [hidden]="(context.get('toggle') | async) === 'close'">APPLICATION</span>
-      <span [hidden]="(context.get('toggle') | async) === 'open'">-</span>
-    </span>
-      <div [hidden]="(context.get('toggle') | async) === 'close'">
-        <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/dashboard']">Dashboard</mat-list-item>
-      </div>
-      <div [hidden]="(context.get('toggle') | async) === 'open'">
-        <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/dashboard']">D</mat-list-item>
-      </div>
+        <div [hidden]="(context.get('toggle') | async) === 'close'">
+          <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/income']">
+            <mat-icon>attach_money</mat-icon> <span class="space">Income</span>
+          </mat-list-item>
+        </div>
+        <div [hidden]="(context.get('toggle') | async) === 'open'">
+          <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/income']" *ngIf="(context.get('toggle') | async) === 'close'">
+            <mat-icon>attach_money</mat-icon>
+          </mat-list-item>
+        </div>
 
-      <div [hidden]="(context.get('toggle') | async) === 'close'">
-        <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/profile']">Profile</mat-list-item>
-      </div>
-      <div [hidden]="(context.get('toggle') | async) === 'open'">
-        <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/profile']" *ngIf="(context.get('toggle') | async) === 'close'">P</mat-list-item>
-      </div>
-    </mat-nav-list>
+        <div [hidden]="(context.get('toggle') | async) === 'close'">
+          <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/cost']">
+            <mat-icon>money_off</mat-icon> <span class="space">Cost</span>
+          </mat-list-item>
+        </div>
+        <div [hidden]="(context.get('toggle') | async) === 'open'">
+          <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/cost']" *ngIf="(context.get('toggle') | async) === 'close'">
+            <mat-icon>money_off</mat-icon>
+          </mat-list-item>
+        </div>
+
+        <!--<div [hidden]="(context.get('toggle') | async) === 'close'">-->
+          <!--<mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/profile']">-->
+            <!--<mat-icon>person</mat-icon> <span class="space">Profile</span>-->
+          <!--</mat-list-item>-->
+        <!--</div>-->
+        <!--<div [hidden]="(context.get('toggle') | async) === 'open'">-->
+          <!--<mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/profile']" *ngIf="(context.get('toggle') | async) === 'close'">-->
+            <!--<mat-icon>person</mat-icon>-->
+          <!--</mat-list-item>-->
+        <!--</div>-->
+        <!--<div [hidden]="(context.get('toggle') | async) === 'close'">-->
+          <!--<mat-list-item>-->
+            <!--<mat-icon>perm_contact_calendar</mat-icon> <span class="space">Calendar</span>-->
+          <!--</mat-list-item>-->
+        <!--</div>-->
+        <!--<div [hidden]="(context.get('toggle') | async) === 'open'">-->
+          <!--<mat-list-item *ngIf="(context.get('toggle') | async) === 'close'">-->
+            <!--<mat-icon>perm_contact_calendar</mat-icon>-->
+          <!--</mat-list-item>-->
+        <!--</div>-->
+        <!--<div [hidden]="(context.get('toggle') | async) === 'close'">-->
+          <!--<mat-list-item >-->
+            <!--<mat-icon>view_list</mat-icon> <span class="space">Todo</span>-->
+          <!--</mat-list-item>-->
+        <!--</div>-->
+        <!--<div [hidden]="(context.get('toggle') | async) === 'open'">-->
+          <!--<mat-list-item *ngIf="(context.get('toggle') | async) === 'close'">-->
+            <!--<mat-icon>view_list</mat-icon>-->
+          <!--</mat-list-item>-->
+        <!--</div>-->
+
+        <!--<div [hidden]="(context.get('toggle') | async) === 'close'">
+          <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/showcase']">
+            <mat-icon>present_to_all</mat-icon> <span class="space">Showcase</span>
+          </mat-list-item>
+        </div>
+        <div [hidden]="(context.get('toggle') | async) === 'open'">
+          <mat-list-item routerLinkActive="active" [routerLink]="['/dashboard/showcase']" *ngIf="(context.get('toggle') | async) === 'close'">
+            <mat-icon>present_to_all</mat-icon>
+          </mat-list-item>
+        </div>-->
+      </mat-nav-list>
   </div>
 </div>

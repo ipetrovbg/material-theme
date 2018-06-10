@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+   <div fxLayout="row" fxLayoutAlign=" center" >
+     <mat-icon *ngIf="show | async" [@enterAnimation]>{{ icon }}</mat-icon>
+     <span *ngIf="show | async" [@enterAnimationSlow]>
+        {{ title }}
+    </span>
+   </div>
+    <button mat-icon-button (click)="onSettings.emit(true)">
+      <mat-icon>settings_applications</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
+<div class="page-wrapper">
+  <ng-content></ng-content>
+</div>

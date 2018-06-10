@@ -1,0 +1,40 @@
+<div fxLayout="column" fxLayoutAlign="center center" style="width: 100%;height: 55vh;">
+  <div style="width: 100%;">
+    <!--<app-card-sidebar [open]="open" (backDrop)="(open = !open)" fxFlex="25" fxFlexOffset="35">-->
+
+        <app-card-toolbar title="Login" color="primary" fxFlex="25" fxFlex.lt-lg="50" fxFlex.lt-sm="100" fxFlexOffset="35" fxFlexOffset.lt-lg="25" fxFlexOffset.lt-sm="0">
+          <app-card-loader mode="determinate" value="100">
+            <!--<app-card-actions>-->
+            <!--<button mat-raised-button color="primary" (click)="open = !open">Open</button>-->
+            <!--</app-card-actions>-->
+            <app-card-content>
+              <ul *ngIf="(userManage | async).error" class="errors">
+                <li *ngFor="let error of (userManage | async).errors" class="error-text">{{ error }}</li>
+              </ul>
+
+              <form [formGroup]="form" (ngSubmit)="submit()" #f="ngForm">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Email" type="email" formControlName="email">
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Password" type="password" formControlName="password">
+                </mat-form-field>
+
+                <app-card-actions>
+
+                  <button mat-raised-button color="primary" class="full-width" [disabled]="form.invalid && form.touched && form.dirty">
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                      <span *ngIf="!(loading | async)">Login</span>
+                      <mat-spinner *ngIf="loading | async" color="warn" mode="determinate" [diameter]="30"></mat-spinner>
+                    </div>
+                  </button>
+                </app-card-actions>
+              </form>
+            </app-card-content>
+          </app-card-loader>
+        </app-card-toolbar>
+    <!--</app-card-sidebar>-->
+  </div>
+
+</div>

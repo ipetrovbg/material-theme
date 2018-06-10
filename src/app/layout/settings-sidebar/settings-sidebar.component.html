@@ -11,6 +11,18 @@
         </mat-slide-toggle>
       </mat-list-item>
       <mat-divider></mat-divider>
+      <mat-list-item>
+
+        <input style="opacity: 0;" matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker touchUi="true"></mat-datepicker>
+        <pre>
+          {{ picker.displayValue }}
+        </pre>
+
+          <h3 mat-line>Pay day</h3>
+      </mat-list-item>
+      <mat-divider></mat-divider>
       <h3 mat-subheader>Notes</h3>
       <mat-list-item>
         <h3 mat-line>Some note</h3>
